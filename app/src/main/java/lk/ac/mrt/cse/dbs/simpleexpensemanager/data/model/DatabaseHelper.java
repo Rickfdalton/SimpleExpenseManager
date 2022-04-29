@@ -141,16 +141,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public void updateBalance(String accountNo, ExpenseType expenseType, double amount) {
+
         SQLiteDatabase db = this.getReadableDatabase();
         if (expenseType==ExpenseType.EXPENSE){
             double amnt= this.getAccount(accountNo).getBalance() - amount;
             if (amnt>0){
 
                 Cursor c=db.rawQuery("UPDATE "+TABLE_ACC+" SET "+ INITIAL_BALANCE+" = '"+amnt+"' WHERE "+ACC_NUM+" = '"+ accountNo +"';",null);
-                c.moveToFirst();
+              c.moveToFirst();
                 c.close();
 
-                Log.d("success",new Double(amnt).toString());
             }
             else{
                 Toast.makeText(context, "not enough money", Toast.LENGTH_SHORT).show();

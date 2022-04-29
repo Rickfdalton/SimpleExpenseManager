@@ -20,7 +20,6 @@ public class PersistentMemoryTransactionDAO implements TransactionDAO {
     @Override
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
         dh.addLog(date,accountNo,expenseType,amount);
-        dh.updateBalance(accountNo,expenseType,amount);
 
     }
 

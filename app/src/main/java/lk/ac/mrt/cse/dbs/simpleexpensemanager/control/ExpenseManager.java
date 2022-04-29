@@ -17,6 +17,7 @@
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.Serializable;
@@ -81,14 +82,17 @@ public abstract class ExpenseManager implements Serializable {
                 transactionsHolder.logTransaction(transactionDate, accountNo, expenseType, amountVal);
                 accountsHolder.updateBalance(accountNo, expenseType, amountVal);
 
-            }
 
+
+            }
             else if(accountsHolder.getAccount(accountNo).getBalance()<amountVal && expenseType.toString()=="EXPENSE"){
                 Toast.makeText(c, "not enough money", Toast.LENGTH_SHORT).show();
 
             }else if (expenseType.toString()=="INCOME"){
                 transactionsHolder.logTransaction(transactionDate, accountNo, expenseType, amountVal);
                 accountsHolder.updateBalance(accountNo, expenseType, amountVal);
+
+
             }
 
         }
