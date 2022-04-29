@@ -74,6 +74,8 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                 String initialBalanceStr = initialBalance.getText().toString();
 
 
+
+
                 if (accountNumStr.isEmpty()) {
                     accountNumber.setError(getActivity().getString(R.string.err_acct_number_empty));
                     break;
