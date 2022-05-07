@@ -38,7 +38,7 @@ public class PersistentMemoryAccountDAO implements AccountDAO {
 
     @Override
     public void addAccount(Account account) {
-        dh.addAccount(account.getAccountNo(),account.getBankName(),account.getAccountHolderName(),account.getBalance());
+        dh.addAccount(account.getAccountNo(),account.getBankName(),account.getAccountHolderName(),account.getBalance(),0);
     }
 
     @Override

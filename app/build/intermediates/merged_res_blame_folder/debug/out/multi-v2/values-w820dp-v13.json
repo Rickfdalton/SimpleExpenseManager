@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/jathavanmahendrarajah/Downloads/SimpleExpenseManager-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
+            "outputFile": "/Users/jathavanmahendrarajah/Documents/GitHub/SimpleExpenseManager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/jathavanmahendrarajah/Downloads/SimpleExpenseManager-master/app/src/main/res/values-w820dp/dimens.xml",
+                    "source": "/Users/jathavanmahendrarajah/Documents/GitHub/SimpleExpenseManager/app/src/main/res/values-w820dp/dimens.xml",
                     "from": {
                         "startLines": "20",
                         "startColumns": "4",

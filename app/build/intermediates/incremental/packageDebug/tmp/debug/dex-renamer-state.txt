@@ -1,4 +1,4 @@
-#Fri Apr 29 19:40:36 IST 2022
-base.0=/Users/jathavanmahendrarajah/Downloads/SimpleExpenseManager-master/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Sat May 07 13:31:55 IST 2022
+base.0=/Users/jathavanmahendrarajah/Documents/GitHub/SimpleExpenseManager/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
