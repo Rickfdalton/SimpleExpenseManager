@@ -31,7 +31,7 @@ jobs:
     - name: Build with Gradle
       run: gradle build
     - name: Unit Test
-      run: gradle testDebugUnitTest
+      run: gradle DatabaseHelperTest
     - name: Android Test Report
       uses: asadmansr/android-test-report-action@v1.2.0
       if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
