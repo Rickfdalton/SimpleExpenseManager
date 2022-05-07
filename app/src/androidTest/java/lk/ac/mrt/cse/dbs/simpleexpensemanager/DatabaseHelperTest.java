@@ -1,7 +1,10 @@
-package lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model;
+package lk.ac.mrt.cse.dbs.simpleexpensemanager;
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 
 import junit.framework.TestCase;
+
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.DatabaseHelper;
 
 public class DatabaseHelperTest extends TestCase {
     private DatabaseHelper db;
