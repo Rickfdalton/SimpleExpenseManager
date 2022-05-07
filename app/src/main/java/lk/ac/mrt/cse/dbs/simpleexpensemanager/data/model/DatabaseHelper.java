@@ -14,8 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        db.execSQL("DROP TABLE IF EXISTS "+TABLE_LOG);
     }
 
-    public void addAccount(String acc_no, String bank, String acc_holder, double initial_bal){
+    public void addAccount(String acc_no, String bank, String acc_holder, double initial_bal,int t){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues cv =new ContentValues();
 
@@ -79,11 +79,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(INITIAL_BALANCE,initial_bal);
 
         long result = db.insert(TABLE_ACC,null,cv);
-        if(result==-1){
-            Toast.makeText(context, "failed to add account", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "success", Toast.LENGTH_SHORT).show();
+        if (t==0) {
+            if (result == -1) {
+                Toast.makeText(context, "failed to add account", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "success", Toast.LENGTH_SHORT).show();
 
+            }
         }
 
     }
@@ -96,16 +98,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Account getAccount(String acc){
         SQLiteDatabase db =this.getReadableDatabase();
         Cursor c =db.rawQuery("SELECT "+ACC_NUM+","+BANK+","+ACC_HOLDER+","+INITIAL_BALANCE+" FROM "+TABLE_ACC+" WHERE "+ACC_NUM+"= '"+acc+"';" ,null);
-        c.moveToNext();
-//        Log.d("heyyyy", c.getString(c.getColumnIndex(ACC_NUM)));
-//        Log.d("heyyyy", c.getString(c.getColumnIndex(BANK)));
-//        Log.d("heyyyy", c.getString(c.getColumnIndex(ACC_HOLDER)));
-//        Log.d("heyyyy", c.getString(c.getColumnIndex(INITIAL_BALANCE)));
 
+       if( c.moveToNext()){
+           return ( new Account(c.getString(c.getColumnIndex(ACC_NUM)),c.getString(c.getColumnIndex(BANK)),c.getString(c.getColumnIndex(ACC_HOLDER)),Double.parseDouble(c.getString(c.getColumnIndex(INITIAL_BALANCE)))));
 
-//        return ( new Account(c.getString(c.getColumnIndex(ACC_NUM)),c.getString(c.getColumnIndex(BANK)),c.getString(c.getColumnIndex(ACC_HOLDER)),c.getDouble(c.getColumnIndex(INITIAL_BALANCE))));
-        return ( new Account(c.getString(c.getColumnIndex(ACC_NUM)),c.getString(c.getColumnIndex(BANK)),c.getString(c.getColumnIndex(ACC_HOLDER)),Double.parseDouble(c.getString(c.getColumnIndex(INITIAL_BALANCE)))));
-
+       }
+       else{
+           return null;
+       }
     }
 
     public List<String> getAccountNumbersList(){
