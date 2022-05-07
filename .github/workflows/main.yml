@@ -30,9 +30,5 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       run: gradle build
-  test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Test
-      run: gradle test --tests "*"
+    - name: Unit Test
+      run: gradle testDebugUnitTest
