@@ -100,7 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c =db.rawQuery("SELECT "+ACC_NUM+","+BANK+","+ACC_HOLDER+","+INITIAL_BALANCE+" FROM "+TABLE_ACC+" WHERE "+ACC_NUM+"= '"+acc+"';" ,null);
 
        if( c.moveToNext()){
-           return ( new Account(c.getString(c.getColumnIndex(ACC_NUM)),c.getString(c.getColumnIndex(BANK)),c.getString(c.getColumnIndex(ACC_HOLDER)),Double.parseDouble(c.getString(c.getColumnIndex(INITIAL_BALANCE)))));
+           return ( new Account(c.getString(c.getColumnIndexOrThrow(ACC_NUM)),c.getString(c.getColumnIndexOrThrow(BANK)),c.getString(c.getColumnIndexOrThrow(ACC_HOLDER)),Double.parseDouble(c.getString(c.getColumnIndexOrThrow(INITIAL_BALANCE)))));
 
        }
        else{
