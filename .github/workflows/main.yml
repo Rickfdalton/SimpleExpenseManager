@@ -30,13 +30,20 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       run: gradle build
-    - name: Unit Test
-      run: bash ./gradlew connectedCheck --tests *DatabaseHelperTest
+#     - name: Unit Test
+#       run: bash ./gradlew connectedCheck --tests *DatabaseHelperTest
 #     - name: Android Test Report
 #       uses: asadmansr/android-test-report-action@v1.2.0
 #       if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
-      if: always()
-      with:
-        files: "test-results/**/*.xml"
+
+  instrumented_test:
+    runs-on: macos-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Run instrumented tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          script: ./gradlew connectedCheck
