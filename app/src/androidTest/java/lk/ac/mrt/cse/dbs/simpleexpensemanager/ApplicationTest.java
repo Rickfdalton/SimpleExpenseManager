@@ -16,13 +16,8 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager;
 
-import static android.support.test.InstrumentationRegistry.getTargetContext;
-
 import android.app.Application;
 import android.test.ApplicationTestCase;
-
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.DatabaseHelper;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -32,31 +27,5 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         super(Application.class);
     }
 
-    private DatabaseHelper db;
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-        db = new DatabaseHelper(getTargetContext());
-
-    }
-
-    public void testAddAccount() {
-        db.addAccount("android_test_4","android_test_4","android_test_4",100,1);
-        Account acc = db.getAccount("android_test_4");
-        assertTrue(acc!=null);
-
-    }
-
-    public void testGetAccount() {
-        Account acc = db.getAccount("android_test_4");
-        assertTrue(acc!=null);
-
-    }
-    public void testRemoveAccount() {
-        db.removeAccount("'android_test_4'");
-        Account acc = db.getAccount("android_test_4");
-        assertTrue(acc==null);
-
-    }
 }
