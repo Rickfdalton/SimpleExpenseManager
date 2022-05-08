@@ -44,8 +44,8 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testAddAccount() {
         db.addAccount("android_test_4","android_test_4","android_test_4",100,1);
         Account acc = db.getAccount("android_test_4");
-//         assertTrue(acc!=null);
-           assertTrue(false);
+        assertTrue(acc!=null);
+
     }
 
     public void testGetAccount() {
