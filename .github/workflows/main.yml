@@ -52,6 +52,4 @@ jobs:
           arch: x86
           profile: Nexus 6
           script: ./gradlew connectedCheck --stacktrace
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+ 
