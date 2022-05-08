@@ -32,6 +32,11 @@ jobs:
       run: gradle build
     - name: Unit Test
       run: bash ./gradlew test
-    - name: Android Test Report
-      uses: asadmansr/android-test-report-action@v1.2.0
-      if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+#     - name: Android Test Report
+#       uses: asadmansr/android-test-report-action@v1.2.0
+#       if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: always()
+      with:
+        files: "test-results/**/*.xml"
